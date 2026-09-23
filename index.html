@@ -46,7 +46,7 @@
       position: relative;
     }
 
-    /* PANTALLA 1: PORTADA */
+    /* VISTA 1: PORTADA */
     #vista-portada {
       display: flex;
       flex-direction: column;
@@ -75,7 +75,7 @@
     }
 
     .portada-desc {
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 20px;
@@ -93,7 +93,7 @@
       color: #B45309;
       font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 6xl;
+      margin-bottom: 4px;
     }
 
     .bonus-box p {
@@ -105,7 +105,7 @@
       width: 100%;
       background: var(--accent);
       color: #FFFFFF;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       border: none;
       padding: 16px 20px;
@@ -124,7 +124,7 @@
       transform: translateY(-2px);
     }
 
-    /* PANTALLA 2: FORMULARIO */
+    /* VISTA 2: FORMULARIO */
     #vista-formulario {
       display: none;
       padding: 24px 28px 32px 28px;
@@ -178,7 +178,7 @@
     }
 
     .section-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 14px;
@@ -206,7 +206,7 @@
     }
 
     label {
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: #374151;
     }
@@ -228,27 +228,20 @@
     }
 
     .hint {
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: #6B7280;
-      margin-top: 2px;
     }
 
-    /* PANTALLA 3: CONFIRMACIÓN BONITA */
+    /* VISTA 3: CONFIRMACIÓN */
     #vista-exito {
       display: none;
-      padding: 40px 28px;
+      padding: 42px 26px;
       text-align: center;
     }
 
     .success-icon {
       font-size: 4rem;
       margin-bottom: 14px;
-      animation: bounce 0.6s ease;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
     }
 
     .success-title {
@@ -294,21 +287,20 @@
 
   <div class="container">
     
-    <!-- ================= 1. VISTA PORTADA ================= -->
+    <!-- ================= VISTA 1: PORTADA ================= -->
     <div id="vista-portada">
-      <!-- Asegúrate que la imagen se llame exactamente 'portada.jpg' en tu repositorio de GitHub -->
-      <img src="portada.jpg" alt="¡Gana con tu Referido! - Partner Service" class="banner-img" />
+      <img src="Portada.png" alt="Gana con tu Referido" class="banner-img" />
 
       <div class="portada-content">
         <h1 class="portada-title">¡Trae a tu gente y trabajen juntos!</h1>
         <p class="portada-desc">
-          ¿Tienes un amigo o familiar en busca de una gran oportunidad laboral? 
-          Refiérelo para unirse al equipo de <strong>Partner Service</strong> y disfruten la experiencia de crecer profesionalmente juntos.
+          Invita a tus familiares y amigos a ser parte del equipo de <strong>Partner Service</strong>. 
+          Ingresa sus datos para contactarlos e iniciar juntos esta nueva etapa laboral.
         </p>
 
         <div class="bonus-box">
           <h3>💰 Gana hasta S/ 200 por referido</h3>
-          <p>S/ 100 al primer mes + S/ 100 al segundo mes activo en su proceso de capacitación.</p>
+          <p>S/ 100 al primer mes + S/ 100 al segundo mes activo en proceso de capacitación.</p>
         </div>
 
         <button type="button" class="btn-main" onclick="mostrarFormulario()">
@@ -317,23 +309,22 @@
       </div>
     </div>
 
-    <!-- ================= 2. VISTA FORMULARIO ================= -->
+    <!-- ================= VISTA 2: FORMULARIO ================= -->
     <div id="vista-formulario">
       <div class="top-bar">
         <button type="button" class="btn-back" onclick="volverPortada()">
-          ← Volver a la portada
+          ← Volver al inicio
         </button>
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary);">Paso 2 de 2</span>
       </div>
 
       <div class="form-header">
         <h2>Ficha de Referidos</h2>
-        <p>Completa los datos del postulante y tus datos como colaborador.</p>
+        <p>Completa con cuidado la información de ambos campos.</p>
       </div>
 
       <form id="referralForm">
         
-        <!-- SECCIÓN: DATOS DEL REFERIDO -->
+        <!-- DATOS DEL REFERIDO -->
         <div class="form-section">
           <div class="section-title">
             <span>👤</span> DATOS DEL REFERIDO
@@ -341,7 +332,7 @@
           <div class="form-grid">
             <div class="form-group full-width">
               <label for="referidoNombres">Apellidos y Nombres *</label>
-              <input type="text" id="referidoNombres" name="referidoNombres" placeholder="Ej. Pérez Silva, Juan Carlos" required />
+              <input type="text" id="referidoNombres" name="referidoNombres" placeholder="Ej. Pérez Silva, Carlos Daniel" required />
             </div>
 
             <div class="form-group">
@@ -355,13 +346,13 @@
 
             <div class="form-group">
               <label for="referidoNumDoc">Número de Documento *</label>
-              <!-- type="text" permite ingresar los 00 iniciales y más de 9 dígitos para C.E -->
-              <input type="text" id="referidoNumDoc" name="referidoNumDoc" maxlength="15" placeholder="Ej. 001234567 o DNI" required />
+              <!-- type="text" permite ingresar los ceros iniciales (00...) de los C.E -->
+              <input type="text" id="referidoNumDoc" name="referidoNumDoc" maxlength="15" placeholder="Ej. 001234567 o 72456789" required />
               <span class="hint">Si es C.E., ingresa los "00" iniciales completos.</span>
             </div>
 
             <div class="form-group full-width">
-              <label for="referidoTelefono">Número de Contacto (WhatsApp / Llamadas) *</label>
+              <label for="referidoTelefono">Número de Contacto (Celular / WhatsApp) *</label>
               <input type="tel" id="referidoTelefono" name="referidoTelefono" maxlength="15" placeholder="Ej. 9XXXXXXXX" required />
             </div>
 
@@ -381,7 +372,7 @@
           </div>
         </div>
 
-        <!-- SECCIÓN: DATOS DEL QUE REFIERE -->
+        <!-- DATOS DEL QUE REFIERE -->
         <div class="form-section">
           <div class="section-title">
             <span>⭐</span> DATOS DEL QUE REFIERE (Colaborador)
@@ -389,7 +380,7 @@
           <div class="form-grid">
             <div class="form-group full-width">
               <label for="refiereNombres">Tus Apellidos y Nombres *</label>
-              <input type="text" id="refiereNombres" name="refiereNombres" placeholder="Ej. Gómez Flores, María" required />
+              <input type="text" id="refiereNombres" name="refiereNombres" placeholder="Ej. Rodríguez Castro, Ana María" required />
             </div>
 
             <div class="form-group">
@@ -403,7 +394,7 @@
 
             <div class="form-group">
               <label for="refiereNumDoc">Número de Documento *</label>
-              <input type="text" id="refiereNumDoc" name="refiereNumDoc" maxlength="15" placeholder="Ej. 001234567 o DNI" required />
+              <input type="text" id="refiereNumDoc" name="refiereNumDoc" maxlength="15" placeholder="Ej. 001234567 o 45678901" required />
               <span class="hint">Si es C.E., ingresa los "00" iniciales completos.</span>
             </div>
 
@@ -434,15 +425,15 @@
       </form>
     </div>
 
-    <!-- ================= 3. VISTA ÉXITO / CONFIRMACIÓN ================= -->
+    <!-- ================= VISTA 3: PANTALLA DE ÉXITO ================= -->
     <div id="vista-exito">
       <div class="success-icon">🎉🙌</div>
       <h2 class="success-title">¡Referido Registrado con Éxito!</h2>
       
       <p class="success-text">
-        ¡Gracias por sumar a tu gente a la familia de <strong>Partner Service</strong>! 
+        ¡Muchas gracias por recomendar a tu gente a la familia de <strong>Partner Service</strong>!
         <br><br>
-        El equipo de Selección y Atracción del Talento se comunicará en breve con tu referido para coordinar su evaluación e ingreso.
+        Nos pondremos en contacto con tu referido a la brevedad para evaluar su postulación.
       </p>
 
       <div class="team-badge">
@@ -457,7 +448,9 @@
   </div>
 
   <script>
-    // PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT:
+    // =========================================================================
+    // PEGA AQUÍ EL ENLACE DE TU IMPLEMENTACIÓN DE GOOGLE APPS SCRIPT (/exec):
+    // =========================================================================
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKK7mNU0-Vs9Ywb_tS9VoMqd_A81LWA7CsM4xKv_v9nbXSNCl7FvyvmTNfvtHsd4-G/exec";
 
     const vistaPortada = document.getElementById('vista-portada');
@@ -496,12 +489,12 @@
           mode: 'no-cors'
         });
 
-        // Pasar a la pantalla de éxito
+        // Mostrar confirmación
         vistaFormulario.style.display = 'none';
         vistaExito.style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } catch (error) {
-        alert("Ocurrió un inconveniente al registrar los datos. Por favor verifica tu conexión e inténtalo de nuevo.");
+        alert("Ocurrió un error al enviar la información. Revisa tu conexión a internet.");
       } finally {
         btnSubmit.disabled = false;
         btnSubmit.textContent = "✨ Enviar Postulación de Referido";
